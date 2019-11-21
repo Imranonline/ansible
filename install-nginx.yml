@@ -1,0 +1,15 @@
+---
+- hosts: all
+  # become root (using sudo, by default)
+  become: yes
+  tasks:
+  - name: Install httpd
+    yum:
+        name: httpd
+        state: latest
+  - name: Start service httpd, if not started
+    service:
+        name: httpd
+        state: started
+  - name: Install NGINX
+    yum: name=http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm state=present
