@@ -2,6 +2,18 @@
 
 Ansible QuickStarters
 
+
+### Create Ansible Server (Lets take an example of Redhat 8 as an Ansible Server)
+
+It was giving error as we had choosen redhat 8 and it was due to the new way of installing it 
+
+<pre><code>sudo yum install python3
+sudo alternatives --set python /usr/bin/python3
+python -V
+sudo yum -y install python3-pip
+sudo pip3 install ansible</pre></code>
+
+
 ### Create Ansible Server (Lets take an example of Ubuntu 18.0 as an Ansible Server)
 
 1. Create a machine using Ubuntu 18.0 AMI.
@@ -53,8 +65,8 @@ you can give any group name like my_grp etc.
 www1-gcp
 
 [my_grp:vars]
-ansible_ssh_user=ec-2 // This will be the user of the machine based on machine type for aws ec-2
-ansible_ssh_private_key_file=./mykey.pem // your Pem key location.
+ansible_ssh_user=ec2-user # This will be the user of the machine based on machine type for aws ec-2
+ansible_ssh_private_key_file=./mykey.pem # your Pem key location.
 </pre></code>
 
 6. Type Ansible Ping Command to check if Hosts are active
